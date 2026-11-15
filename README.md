@@ -60,6 +60,15 @@ each `(state, position)` pair at most once — `^(a+)+$` is structurally
 identical to `^(a*)$` for the scanner, and the group marker is just an
 annotation counted in the trace.
 
+**Measured, not just claimed:** the full article/Davis
+catastrophic-backtracking catalog runs against 100 KB adversarial inputs in
+21–178 ms (rejections, Phase 1 only) and 275–1085 ms (matching runs, with the
+bounded Phase 2 walk), with linear scaling fits and no budget exhaustion —
+see [docs/measurements/redos-immunity](docs/measurements/redos-immunity/README.md).
+The same catalog and inputs are measured against the evolved
+ENFA StepLexer/StepParser line and the .NET baselines in the ENFA
+repository, so the article's ReDoS tables report both architectures.
+
 ## The other payoff: variable-length lookbehind
 
 Because a lookbehind is validated by a **prefix-window sub-scan that must end
@@ -109,8 +118,9 @@ src/DevelApp.TwoLayerRegex         the engine
   Phase1/        the pathfinding scan + trace (PathfindingScan)
   Phase2/        the bounded grouping resolver (GroupingResolver)
   TwoLayerRegex  the facade: Match / MatchExact / IsMatch
-src/DevelApp.TwoLayerRegex.Tests   41 xunit tests: features, semantics, ReDoS immunity
+src/DevelApp.TwoLayerRegex.Tests   83 xunit tests: features, semantics, ReDoS immunity
 src/DevelApp.TwoLayerRegex.Demo    the showcase runner quoted above
+docs/measurements/redos-immunity  committed measurement data + CI-enforced suite
 ```
 
 ## Honest limitations

@@ -1,0 +1,830 @@
+{
+  "engine": "DevelApp.TwoLayerRegex (OriginalTwoLayerRegexArchitecture showcase)",
+  "method": "MatchExact \u2014 anchored full-input evaluation: one Phase 1 scan (O(m\u00B7n)) plus, only on structural accept, the bounded Phase 2 walk",
+  "generatedUtc": "2026-11-15T08:12:43Z",
+  "mode": "full",
+  "repetitions": 5,
+  "environment": {
+    "runtime": ".NET 8.0.34",
+    "os": "Debian GNU/Linux 13 (trixie)"
+  },
+  "note": "The .NET backtracking and NonBacktracking baselines for the identical pattern catalog and inputs are committed in the ENFAStepLexer-StepParser repository (docs/measurements/redos-immunity/); this report adds the two-layer engine\u0027s own column.",
+  "grid": [
+    {
+      "caseName": "article-(a\u002B)\u002B",
+      "pattern": "(a\u002B)\u002B",
+      "input": "AsTrailingBang",
+      "length": 1024,
+      "ms": 3.1425,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a\u002B)\u002B",
+      "pattern": "(a\u002B)\u002B",
+      "input": "AsTrailingBang",
+      "length": 10240,
+      "ms": 10.4031,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a\u002B)\u002B",
+      "pattern": "(a\u002B)\u002B",
+      "input": "AsTrailingBang",
+      "length": 102400,
+      "ms": 109.6554,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a*)*b",
+      "pattern": "(a*)*b",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 0.5153,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a*)*b",
+      "pattern": "(a*)*b",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 5.3835,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a*)*b",
+      "pattern": "(a*)*b",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 54.3652,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a|a)*",
+      "pattern": "(a|a)*",
+      "input": "AsTrailingBang",
+      "length": 1024,
+      "ms": 0.7419,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a|a)*",
+      "pattern": "(a|a)*",
+      "input": "AsTrailingBang",
+      "length": 10240,
+      "ms": 7.8746,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(a|a)*",
+      "pattern": "(a|a)*",
+      "input": "AsTrailingBang",
+      "length": 102400,
+      "ms": 78.5589,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(.*a){10}",
+      "pattern": "(.*a){10}",
+      "input": "BsPlusNineAs",
+      "length": 1024,
+      "ms": 2.2011,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(.*a){10}",
+      "pattern": "(.*a){10}",
+      "input": "BsPlusNineAs",
+      "length": 10240,
+      "ms": 2.3783,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-(.*a){10}",
+      "pattern": "(.*a){10}",
+      "input": "BsPlusNineAs",
+      "length": 102400,
+      "ms": 21.2932,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-cloudflare",
+      "pattern": ".*(?:.*=.*)",
+      "input": "HeaderNoEquals",
+      "length": 1024,
+      "ms": 0.5097,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-cloudflare",
+      "pattern": ".*(?:.*=.*)",
+      "input": "HeaderNoEquals",
+      "length": 10240,
+      "ms": 4.9241,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-cloudflare",
+      "pattern": ".*(?:.*=.*)",
+      "input": "HeaderNoEquals",
+      "length": 102400,
+      "ms": 52.4555,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-stackoverflow",
+      "pattern": "^([\\w\\-.]\u002B)*@([\\w\\-.]\u002B)$",
+      "input": "AsTrailingBang",
+      "length": 1024,
+      "ms": 0.8284,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-stackoverflow",
+      "pattern": "^([\\w\\-.]\u002B)*@([\\w\\-.]\u002B)$",
+      "input": "AsTrailingBang",
+      "length": 10240,
+      "ms": 7.056,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "article-stackoverflow",
+      "pattern": "^([\\w\\-.]\u002B)*@([\\w\\-.]\u002B)$",
+      "input": "AsTrailingBang",
+      "length": 102400,
+      "ms": 72.7738,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002B$",
+      "pattern": "(a\u002B)\u002B$",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 5.8544,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002B$",
+      "pattern": "(a\u002B)\u002B$",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 21.2001,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002B$",
+      "pattern": "(a\u002B)\u002B$",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 313.1093,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|aa)\u002B$",
+      "pattern": "(a|aa)\u002B$",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 4.1946,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|aa)\u002B$",
+      "pattern": "(a|aa)\u002B$",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 43.9864,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|aa)\u002B$",
+      "pattern": "(a|aa)\u002B$",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 1084.7467,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-([a-zA-Z]\u002B)*$",
+      "pattern": "([a-zA-Z]\u002B)*$",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 2.1542,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-([a-zA-Z]\u002B)*$",
+      "pattern": "([a-zA-Z]\u002B)*$",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 18.6746,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-([a-zA-Z]\u002B)*$",
+      "pattern": "([a-zA-Z]\u002B)*$",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 274.7499,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(x\u002Bx\u002B)\u002By",
+      "pattern": "(x\u002Bx\u002B)\u002By",
+      "input": "AllXs",
+      "length": 1024,
+      "ms": 1.7306,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(x\u002Bx\u002B)\u002By",
+      "pattern": "(x\u002Bx\u002B)\u002By",
+      "input": "AllXs",
+      "length": 10240,
+      "ms": 17.2262,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(x\u002Bx\u002B)\u002By",
+      "pattern": "(x\u002Bx\u002B)\u002By",
+      "input": "AllXs",
+      "length": 102400,
+      "ms": 178.3658,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002Bb",
+      "pattern": "(a\u002B)\u002Bb",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 1.0265,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002Bb",
+      "pattern": "(a\u002B)\u002Bb",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 10.3112,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)\u002Bb",
+      "pattern": "(a\u002B)\u002Bb",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 103.1319,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|b|ab)*c",
+      "pattern": "(a|b|ab)*c",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 0.8243,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|b|ab)*c",
+      "pattern": "(a|b|ab)*c",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 8.355,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a|b|ab)*c",
+      "pattern": "(a|b|ab)*c",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 84.2668,
+      "matched": false,
+      "expected": false,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)*$",
+      "pattern": "(a\u002B)*$",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 1.8351,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)*$",
+      "pattern": "(a\u002B)*$",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 21.9019,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(a\u002B)*$",
+      "pattern": "(a\u002B)*$",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 453.1874,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(\\w\u002B\\s?)*$",
+      "pattern": "(\\w\u002B\\s?)*$",
+      "input": "AllAs",
+      "length": 1024,
+      "ms": 1.7351,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(\\w\u002B\\s?)*$",
+      "pattern": "(\\w\u002B\\s?)*$",
+      "input": "AllAs",
+      "length": 10240,
+      "ms": 17.2228,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    },
+    {
+      "caseName": "davis-(\\w\u002B\\s?)*$",
+      "pattern": "(\\w\u002B\\s?)*$",
+      "input": "AllAs",
+      "length": 102400,
+      "ms": 275.8827,
+      "matched": true,
+      "expected": true,
+      "verdict": "correct",
+      "budgetExceeded": false
+    }
+  ],
+  "scaling": [
+    {
+      "caseName": "scale-[a]\u002B",
+      "pattern": "^([a]\u002B)$",
+      "slopeNsPerChar": 1951.26,
+      "r2": 0.9165,
+      "growthRatio": 12.01,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 1.1539
+        },
+        {
+          "length": 4096,
+          "ms": 4.6251
+        },
+        {
+          "length": 16384,
+          "ms": 17.8431
+        },
+        {
+          "length": 32768,
+          "ms": 36.6501
+        },
+        {
+          "length": 65536,
+          "ms": 75.4923
+        },
+        {
+          "length": 102400,
+          "ms": 214.2443
+        }
+      ]
+    },
+    {
+      "caseName": "scale-[a]*b",
+      "pattern": "^([a]*)b$",
+      "slopeNsPerChar": 352.7,
+      "r2": 1,
+      "growthRatio": 6.15,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.3591
+        },
+        {
+          "length": 4096,
+          "ms": 1.4545
+        },
+        {
+          "length": 16384,
+          "ms": 5.8711
+        },
+        {
+          "length": 32768,
+          "ms": 11.6243
+        },
+        {
+          "length": 65536,
+          "ms": 23.1648
+        },
+        {
+          "length": 102400,
+          "ms": 36.1321
+        }
+      ]
+    },
+    {
+      "caseName": "scale-[ab]*",
+      "pattern": "^([ab]*)$",
+      "slopeNsPerChar": 1946.39,
+      "r2": 0.9838,
+      "growthRatio": 8.37,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 1.4563
+        },
+        {
+          "length": 4096,
+          "ms": 5.8166
+        },
+        {
+          "length": 16384,
+          "ms": 24.5378
+        },
+        {
+          "length": 32768,
+          "ms": 58.7257
+        },
+        {
+          "length": 65536,
+          "ms": 104.2359
+        },
+        {
+          "length": 102400,
+          "ms": 205.4452
+        }
+      ]
+    },
+    {
+      "caseName": "scale-negated[^x]*",
+      "pattern": "^([^x]*)$",
+      "slopeNsPerChar": 1802.19,
+      "r2": 0.9781,
+      "growthRatio": 6.94,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 1.6264
+        },
+        {
+          "length": 4096,
+          "ms": 6.4676
+        },
+        {
+          "length": 16384,
+          "ms": 25.0116
+        },
+        {
+          "length": 32768,
+          "ms": 52.5186
+        },
+        {
+          "length": 65536,
+          "ms": 137.8756
+        },
+        {
+          "length": 102400,
+          "ms": 173.4904
+        }
+      ]
+    },
+    {
+      "caseName": "scale-dot.*b",
+      "pattern": "^(.*)b$",
+      "slopeNsPerChar": 441.25,
+      "r2": 0.9998,
+      "growthRatio": 6.17,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.4388
+        },
+        {
+          "length": 4096,
+          "ms": 1.809
+        },
+        {
+          "length": 16384,
+          "ms": 7.2969
+        },
+        {
+          "length": 32768,
+          "ms": 14.6817
+        },
+        {
+          "length": 65536,
+          "ms": 29.3682
+        },
+        {
+          "length": 102400,
+          "ms": 45.0172
+        }
+      ]
+    },
+    {
+      "caseName": "scale-danish[a-z\u00E6\u00F8\u00E5]\u002B",
+      "pattern": "^([a-z\u00E6\u00F8\u00E5]\u002B)$",
+      "slopeNsPerChar": 1440.18,
+      "r2": 0.9855,
+      "growthRatio": 7.97,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 1.1655
+        },
+        {
+          "length": 4096,
+          "ms": 4.6836
+        },
+        {
+          "length": 16384,
+          "ms": 19.0825
+        },
+        {
+          "length": 32768,
+          "ms": 44.8728
+        },
+        {
+          "length": 65536,
+          "ms": 78.3058
+        },
+        {
+          "length": 102400,
+          "ms": 152.1244
+        }
+      ]
+    },
+    {
+      "caseName": "scale-danish-negated[^x]*",
+      "pattern": "^([^x]*)$",
+      "slopeNsPerChar": 1472.71,
+      "r2": 0.9836,
+      "growthRatio": 9.95,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.9479
+        },
+        {
+          "length": 4096,
+          "ms": 4.0124
+        },
+        {
+          "length": 16384,
+          "ms": 15.5077
+        },
+        {
+          "length": 32768,
+          "ms": 41.8642
+        },
+        {
+          "length": 65536,
+          "ms": 78.3828
+        },
+        {
+          "length": 102400,
+          "ms": 154.2447
+        }
+      ]
+    },
+    {
+      "caseName": "scale-evil-(a\u002B)\u002B",
+      "pattern": "^(a\u002B)\u002B$",
+      "slopeNsPerChar": 885.36,
+      "r2": 0.9994,
+      "growthRatio": 6.24,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.8424
+        },
+        {
+          "length": 4096,
+          "ms": 3.4896
+        },
+        {
+          "length": 16384,
+          "ms": 14.3886
+        },
+        {
+          "length": 32768,
+          "ms": 28.8366
+        },
+        {
+          "length": 65536,
+          "ms": 59.7608
+        },
+        {
+          "length": 102400,
+          "ms": 89.7509
+        }
+      ]
+    },
+    {
+      "caseName": "scale-evil-(a*)*b",
+      "pattern": "^(a*)*b$",
+      "slopeNsPerChar": 467.32,
+      "r2": 0.9999,
+      "growthRatio": 6.17,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.4755
+        },
+        {
+          "length": 4096,
+          "ms": 1.9427
+        },
+        {
+          "length": 16384,
+          "ms": 7.7533
+        },
+        {
+          "length": 32768,
+          "ms": 15.701
+        },
+        {
+          "length": 65536,
+          "ms": 30.7522
+        },
+        {
+          "length": 102400,
+          "ms": 47.867
+        }
+      ]
+    },
+    {
+      "caseName": "scale-evil-so-email",
+      "pattern": "^([\\w\\-.]\u002B)*@([\\w\\-.]\u002B)$",
+      "slopeNsPerChar": 617.9,
+      "r2": 0.9995,
+      "growthRatio": 6.52,
+      "points": [
+        {
+          "length": 1024,
+          "ms": 0.5912
+        },
+        {
+          "length": 4096,
+          "ms": 2.4025
+        },
+        {
+          "length": 16384,
+          "ms": 9.7623
+        },
+        {
+          "length": 32768,
+          "ms": 19.7707
+        },
+        {
+          "length": 65536,
+          "ms": 39.2041
+        },
+        {
+          "length": 102400,
+          "ms": 63.6032
+        }
+      ]
+    }
+  ],
+  "unanchoredCharacteristic": {
+    "pattern": "a\u002Bb",
+    "input": "\u0027a\u0027 \u00D7 n via unanchored Match() (not MatchExact)",
+    "points": [
+      {
+        "length": 512,
+        "ms": 33.652,
+        "matched": false
+      },
+      {
+        "length": 1024,
+        "ms": 103.486,
+        "matched": false
+      },
+      {
+        "length": 2048,
+        "ms": 391.615,
+        "matched": false
+      }
+    ],
+    "expected": "quadratic in n (O(m\u00B7n\u00B2) documented limitation); measured at capped lengths only"
+  }
+}
